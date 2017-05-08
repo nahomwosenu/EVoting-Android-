@@ -1,9 +1,11 @@
 package com.nahom.alphageek.csit_voting_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -24,10 +26,11 @@ public class LauncherActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Simple E-Voting System for AMU CS-IT Exhibition 2017 \nDeveloped by: Nahom ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+        fab.setImageResource(R.mipmap.ic_launcher_round);
         findViewById(R.id.btnEnglish).setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
@@ -70,5 +73,28 @@ public class LauncherActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure to exit?");
+        builder.setMessage("Thanks for using this app, Please check out my other apps on git. \n-> Amharic Translator (Android)\n->Flash Protector (Windows & Linux) & others ...\n-> For Computer Maintenance & ICT Support,\nCall me: 0965 29 01 33\nEmail: alphageekict@gmail.com");
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.exit(0);
+                    }
+                }
+        );
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }
+        );
+        builder.show();
     }
 }

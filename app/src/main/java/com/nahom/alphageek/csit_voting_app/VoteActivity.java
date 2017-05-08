@@ -2,6 +2,7 @@ package com.nahom.alphageek.csit_voting_app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -231,6 +232,14 @@ public class VoteActivity extends AppCompatActivity {
                                     }
                                 }
                         );
+                        views[i].setPadding(5,5,5,5);
+                        views[i].setTextSize(20);
+                        views[i].setBackgroundColor(Color.GREEN);
+                        nviews[i].setPadding(5,5,5,5);
+                        nviews[i].setTextSize(20);
+                        nviews[i].setBackgroundColor(Color.LTGRAY);
+                        buttons[i].setPadding(5,5,5,5);
+                        buttons[i].setTextSize(20);
                         gridLayout.addView(views[i]);
                         gridLayout.addView(nviews[i]);
                         gridLayout.addView(buttons[i]);
@@ -249,5 +258,11 @@ public class VoteActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent=new Intent(this,ModeSelect.class);
+        startActivity(intent);
+        finish();
     }
 }

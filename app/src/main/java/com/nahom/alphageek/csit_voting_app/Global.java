@@ -10,11 +10,12 @@ import android.net.wifi.WifiManager;
  */
 
 public class Global {
-    static String ip="10.0.3.2:81";
+    static String ip="10.0.3.2";
     static String path="/voting/";
     static String server="http://"+ip+path;//http://10.0.3.2:81/voting/
     static String language="amharic";//or english
     static String voter="student";//or lecture
+    static String rankType="student";//student or staff, selected on startup by dialog
 
     public static String getMac(Context context){
         WifiManager manager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
